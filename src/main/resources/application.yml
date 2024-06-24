@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://service-discovery-cse.azurewebsites.net/eureka/
+
+resilience4j.circuitbreaker:
+  instances:
+    BusinessCB:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      waitDurationInOpenState: 3s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
